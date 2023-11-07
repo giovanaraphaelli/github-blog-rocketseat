@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
 
+
         :focus{
             outline: 0;
             box-shadow: 0 0 0 2px ${(props) => props.theme['blue']};
@@ -20,6 +21,9 @@ export const GlobalStyle = createGlobalStyle`
 
     body, input, textarea, button{
         font: 400 1rem 'Nunito', sans-serif;
+    }
+    a{
+        text-decoration: none;
     }
 
 `;

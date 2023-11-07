@@ -8,12 +8,11 @@ const Cover = styled.div`
   object-fit: cover;
   background-position-x: center;
   background-repeat: no-repeat;
-  position: relative;
 `;
 const HeaderContainer = styled.div`
   width: 54rem;
   height: 13rem;
-  padding: 2.5rem 2rem;
+  padding: 2rem 2.5rem;
   background-color: ${(props) => props.theme['base-profile']};
   box-shadow: 0px 2px 28px 0px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
