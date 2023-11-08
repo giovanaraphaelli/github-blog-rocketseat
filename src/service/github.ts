@@ -19,3 +19,36 @@ export async function getUserInfo(username: string) {
   const { data } = await githubApi.get<GetUserResponse>(`/users/${username}`);
   return data;
 }
+
+export interface Item {
+  id: number;
+  number: number;
+  title: string;
+  created_at: string;
+  body: string;
+  html_url: string;
+  user: {
+    login: string;
+  };
+  comments: number;
+}
+
+export interface SearchIssuesResponse {
+  total_count: number;
+  incomplete_results: boolean;
+  items: Item[];
+}
+
+export async function searchIssues(
+  username: string,
+  repo: string,
+  search = ''
+) {
+  const { data } = await githubApi.get<SearchIssuesResponse>('/search/issues', {
+    params: {
+      q: `${search} repo:${username}/${repo}`,
+    },
+  });
+
+  return data;
+}

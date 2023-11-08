@@ -1,4 +1,5 @@
 import DefaultLayout from '../../layouts/DefaultLayout';
+import { Content } from './components/Content';
 import { Profile } from './components/Profile';
 
 export function Home() {
@@ -8,7 +9,7 @@ export function Home() {
         <Profile />
       </DefaultLayout.HeaderContainer>
       <DefaultLayout.ContentContainer>
-        Meu conteúdo da página.
+        <Content />
       </DefaultLayout.ContentContainer>
     </DefaultLayout>
   );
