@@ -4,6 +4,7 @@ export const CardContainer = styled.div`
   background-color: ${(props) => props.theme['base-post']};
   border-radius: 10px;
   padding: 2rem;
+  cursor: pointer;
 
   header {
     display: flex;

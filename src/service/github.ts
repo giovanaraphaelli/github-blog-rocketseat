@@ -52,3 +52,14 @@ export async function searchIssues(
 
   return data;
 }
+
+export async function getIssues(
+  username: string,
+  repo: string,
+  number: number
+) {
+  const { data } = await githubApi.get<Item[]>(
+    `/repos/${username}/${repo}/issues/${number}`
+  );
+  return data;
+}

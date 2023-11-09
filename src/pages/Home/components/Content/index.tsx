@@ -1,21 +1,15 @@
-import { formatDistanceToNow } from 'date-fns';
 import { useSearchIssues } from '../../../../hooks/useSearchIssues';
+import { dateDifference } from '../../../../utils/dateDifference';
 import { Card } from '../Card';
 import { CardContainer, SearchInput, TitleContainer } from './styles';
-import ptBR from 'date-fns/locale/pt-BR';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useNavigate } from 'react-router-dom';
 
 export function Content() {
   const [search, setSearch] = useState('');
   const { data } = useSearchIssues(search);
-
-  function dateDifference(date: string) {
-    return formatDistanceToNow(new Date(date), {
-      addSuffix: true,
-      locale: ptBR,
-    });
-  }
+  const navigate = useNavigate();
 
   return (
     <>
@@ -31,6 +25,7 @@ export function Content() {
         {data?.items.map((item) => {
           return (
             <Card
+              handleClick={() => navigate(`/issues/${item.number}`)}
               key={item.number}
               title={item.title}
               body={<ReactMarkdown>{item.body}</ReactMarkdown>}
