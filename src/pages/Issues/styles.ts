@@ -62,8 +62,13 @@ export const Main = styled.main`
     font-size: 1.2rem;
   }
   code {
+    color: ${(props) => props.theme['base-subtitle']};
+    border-radius: 2px;
+  }
+  pre > code {
     display: block;
     background-color: ${(props) => props.theme['base-post']};
+
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 2px;
